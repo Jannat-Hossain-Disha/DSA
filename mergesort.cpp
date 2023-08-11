@@ -62,12 +62,14 @@ void mergeSort(int l, int r)
 }
 int main()
 {
-    fast;
+    //fast;
     int n;
     cin >> n;
     for (ll i = 1; i <= n; i++)
         cin >> a[i];
     mergeSort(0, n-1);
+    //mergeSort(0, n-1);
+    //mergeSort(0, n-1);
     for (int i = 1; i <= n; i++)
         cout << a[i] << " ";
     cout << nl;
