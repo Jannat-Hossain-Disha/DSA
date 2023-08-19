@@ -12,39 +12,46 @@ const ll mx = 1e6 + 123;
 ll sum[mx], a[mx];
 using namespace std;
 
-struct info{
+struct info
+{
     double gpa;
     int age;
     string name;
 };
 
-bool cmp(const info &a,const info &b)
+bool cmp(const info &a, const info &b)
 {
-    if(a.gpa>b.gpa)
-    return true;
-    else if(a.gpa==b.gpa && a.age<b.age)
-    return true;
-    else if(a.gpa==b.gpa && a.age==b.age && a.name<b.name)
-    return true;
+    if (a.gpa > b.gpa)
+        return true;
+    else if (a.gpa == b.gpa && a.age < b.age)
+        return true;
+    else if (a.gpa == b.gpa && a.age == b.age && a.name < b.name)
+        return true;
     return false;
 }
-void printstruct(info myinfo)
-{
-    cout<<myinfo.gpa<<" "<<myinfo.age<<" "<<myinfo.name<<nl;
-}
+
 int main()
 {
     fast;
-    info a,b;
-    a.gpa=3.24;
-    a.age=24;
-    a.name="Adiba";
-
-    b.gpa=3.69;
-    b.age=24;
-    b.name="Disha";
-    printstruct(a);
-    printstruct(b);
-    cout<<cmp(a,b)<<nl;
+    ll n, i;
+    cin >> n;
+    vector<info> v;
+    for (i = 0; i < n; i++)
+    {
+        double gpa1;
+        int age1;
+        string name1;
+        cin>>gpa1>>age1>>name1;
+        info a;
+        a.gpa = gpa1;
+        a.age = age1;
+        a.name = name1;
+        v.pb(a);
+    }
+    for (auto u : v)
+        cout << u.gpa << " " << u.age << " " << u.name << nl;
+    sort(v.begin(), v.end(), cmp);
+    for (auto u : v)
+        cout << u.gpa << " " << u.age << " " << u.name << nl;
     return 0;
 }
