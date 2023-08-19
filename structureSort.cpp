@@ -48,9 +48,12 @@ int main()
         a.name = name1;
         v.pb(a);
     }
+    cout<<"Before Sorting\n";
     for (auto u : v)
         cout << u.gpa << " " << u.age << " " << u.name << nl;
+    cout<<nl;
     sort(v.begin(), v.end(), cmp);
+    cout<<"After Sorting\n";
     for (auto u : v)
         cout << u.gpa << " " << u.age << " " << u.name << nl;
     return 0;

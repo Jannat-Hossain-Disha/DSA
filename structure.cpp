@@ -35,16 +35,39 @@ void printstruct(info myinfo)
 int main()
 {
     fast;
-    info a,b;
-    a.gpa=3.24;
-    a.age=24;
-    a.name="Adiba";
-
-    b.gpa=3.69;
-    b.age=24;
-    b.name="Disha";
-    printstruct(a);
-    printstruct(b);
-    cout<<cmp(a,b)<<nl;
+    vector<info>v;
+    ll i,n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        double gpa1;
+        int age1;
+        string name1;
+        cin>>gpa1>>age1>>name1;
+        info a;
+        a.gpa=gpa1;
+        a.age=age1;
+        a.name=name1;
+        v.pb(a);
+    }
+    cout<<"Before Sorting\n";
+    for(auto u:v)
+    {
+        cout<<u.gpa<<" "<<u.age<<" "<<u.name<<nl;
+    }
+    sort(v.begin(),v.end(),cmp);
+    cout<<"After Sorting\n";
+    for(auto u:v)
+    {
+        cout<<u.gpa<<" "<<u.age<<" "<<u.name<<nl;
+    }
     return 0;
 }
+/*
+5 
+3.69 24 Disha
+3.95 25 Tarin
+3.40 24 Istiaq
+3.69 23 Farhana
+3.40 20 Sumaiya
+*/
