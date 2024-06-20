@@ -9,32 +9,31 @@
 #define nl "\n"
 #define MOD 100
 const ll mx = 1e6 + 123;
-ll sum[mx], a[mx];
+ll sum[mx];
 using namespace std;
 int main()
 {
     fast;
-    ll n, i, j, c = 0;
+    ll n, i, j, mn;
     cin >> n;
     ll a[n + 5];
     for (i = 0; i < n; i++)
         cin >> a[i];
     for (i = 0; i < n - 1; i++)
     {
-        bool f = true;
-        for (j = 0; j < n - i; j++)
+        mn = i;
+        for (j = i + 1; j < n; j++)
         {
-            if (a[j] > a[j + 1])
-            {
-                swap(a[j], a[j + 1]);
-                f = false;
-            }
+            if (a[j] < a[mn])
+                mn = j;
         }
-        if (f)
-            break;
+        swap(a[mn], a[i]);
     }
     for (i = 0; i < n; i++)
+    {
         cout << a[i] << " ";
+    }
     cout << nl;
+
     return 0;
 }
